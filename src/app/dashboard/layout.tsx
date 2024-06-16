@@ -11,11 +11,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const { data: session, status } = useSession();
-  const router = useRouter();
+  
 
   useEffect(() => {
     if (status === "unauthenticated") {
-      return router.push("/");
+      return useRouter.push("/");
     }
   }, [status, session]);
 
@@ -38,6 +38,6 @@ export default function DashboardLayout({
       </section>
     );
   }else{
-    return router.push("/subscription");
+    return useRouter.push("/subscription");
   }
 }
