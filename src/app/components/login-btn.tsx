@@ -7,14 +7,14 @@ const baseBtnStyle ="bg-slate-100 hover:bg-slate-200 text-black px-6 py-2 rounde
 
 export default function LoginBtn() {
   const { data: session, status } = useSession();
-  const router = useRouter();
+  
 
   useEffect(() => {
     if (status === "authenticated") {
       if (!session?.user?.isActive) {
-        return router.push("/subscription");
+        return useRouter.push("/subscription");
       }
-      return router.push("/dashboard");
+      return useRouter.push("/dashboard");
     }
   }, [status, session]);
 
